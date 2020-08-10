@@ -1,3 +1,9 @@
+/* Bismillahir Rahmanir Rahim
+   Md. Sabbir Ahmmed
+   dept. of CSE
+   Northern University Of Business & Technology,Khulna
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
