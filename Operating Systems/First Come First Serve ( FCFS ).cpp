@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 #define endl "\n"
 using namespace std;
 
@@ -42,12 +43,13 @@ int main()
     {
         start = cnt ;
         cout<<"\n     P("<< i <<")"<<" ----->   "<< arrival[j] <<"      ----->   "<< *it <<"     ----->   "<< start <<endl;
-        cnt += *it;
 
-        waiting_time = start - arrival[j] ;
+        cnt += *it;   // next start time = sum of previous burst time
+
+        waiting_time = start - arrival[j] ;    // for one iteration
         waiting_sum += waiting_time;          // total waiting time
 
-        turn_around = *it + waiting_time ;   // *it our burst time
+        turn_around = *it + waiting_time ;   // *it our burst time , for one iteration
         turn_sum += turn_around ;            // total turn around time
 
         i++ ; j++ ;
@@ -74,19 +76,19 @@ int main()
     }
 
     cout<<"\n";
-    cout<<"   ";
+    cout<<"    ";
 
     for( k=arr.begin(); k!=arr.end(); k++)
     {
         start2 = cnt2 ;
-        cout<< start2 <<"         ";    // start time
-        cnt2 += *k;
+        cout<< start2 <<"        ";    // start time
+        cnt2 += *k;                    // next start time = sum of previous burst time
 
-        yes_done = *k ;                // for end time
+        yes_done = *k ;  // for finding last process burst time
     }
 
-    e = find( arr.begin(),arr.end(),yes_done );
-    cout<< start2 + (*e) ;
+    e = find( arr.begin(),arr.end(),yes_done );    // because we need , end time = last( start time + burst time )
+    cout<< start2 + (*e) ;                        // print end time
 
     // ----> End Gantt Chart design part <---
 
