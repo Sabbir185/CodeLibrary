@@ -1,76 +1,97 @@
-/* Bismillahir Rahmanir Rahim
-   Md. Sabbir Ahmmed
-   dept. of CSE
-   Northern University Of Business & Technology,Khulna
+/* Bismillahir Rahmanir Rahim                    Test Case 1 : No.Of process 4 ; P1 0 5     Case 2 : No.Of process 4 ; P1 0 2
+   Md. Sabbir Ahmmed                                                             p2 1 3                                P2 1 2
+   dept. of CSE                                                                  P3 2 8                                P3 5 3
+   Northern University Of Business & Technology,Khulna                           p4 3 6                                P4 6 4
 */
 
 #include <iostream>
-#include <vector>
 #include <algorithm>
-#include <iterator>
+#include <utility>
 #define endl "\n"
 using namespace std;
 
+struct process
+{
+    char pro[10];
+    int arvl_time;
+    int brst_time;
+};
+
+bool cmp( process a, process b )    // sort according to arrival time
+{
+    return ( a.arvl_time < b.arvl_time );
+}
+
 int main()
 {
-    vector<int> arr;
-    vector<int>::iterator it , k , e;
+    int p;
+    cout<<" Enter total number of process : ";
+    cin>>p;
 
-    int process,burst_time;
-    cout<<"  Enter number of process = ";
-    cin>>process;                // Total process input
-    int arrival[process];       // array size define for arrival
-    int n = process ;          // just store number of process
+    process arr[p] ;   // creating object of struct
 
-    cout<<"\n  Enter "<<process<<" processes = ";
-    while(process--)                            // burst time input
+    cout<<" Enter your process name < space > arrival time < space > burst time : "<<endl;
+
+    for( int i=0; i<p; i++ )
     {
-        cin>>burst_time;
-        arr.push_back(burst_time) ;
+        cout<<" ";
+        cin>> arr[i].pro >> arr[i].arvl_time >> arr[i].brst_time ;     // input part
     }
 
-    cout<<"\n  Enter Arrival time for "<<n<<" processes = ";
-    for(int i=0;i<n;i++)
+    sort( arr, arr+p,cmp ) ;  // sorting ascending order ,  according to arrival time
+
+    cout<<"\n   Process      Arrival Time      Burst Time      Start Time      Waiting Time      Turn_around time "<<endl;
+    int start_time = arr[0].arvl_time;
+    int waiting_time=0, turn_around=0;
+    double wt_sum = 0, t_sum = 0 ;
+
+    for( int i=0; i<p; i++ )
     {
-        cin>>arrival[i];                        // Arrival time input
-    }
 
-    int i=1,j=0,cnt=0,start=0,waiting_time=0,turn_around=0 ;
-    double waiting_sum = 0 , turn_sum=0 ;
+        if( start_time >= arr[i].arvl_time )
+        {
+            waiting_time = start_time - arr[i].arvl_time ;   // 1st iteration waiting time
+            wt_sum += waiting_time ;  // total waiting time
 
-    cout<<"\n  Process     Arrival time     Burst time     Start time"<<endl;
-    for( it=arr.begin(); it!=arr.end(); it++ )
-    {
-        start = cnt ;
-        cout<<"\n     P("<< i <<")"<<" ----->   "<< arrival[j] <<"      ----->   "<< *it <<"     ----->   "<< start <<endl;
+            turn_around = arr[i].brst_time + waiting_time ;  // 1st iteration turn around time
+            t_sum += turn_around ;   // total turn around time
 
-        cnt += *it;   // next start time = sum of previous burst time
+            cout<<"\n     "<< arr[i].pro <<"     --  >     "<< arr[i].arvl_time <<
+                "       -->     "<< arr[i].brst_time <<"       -->     "<< start_time <<
+                "       -->     "<< waiting_time <<"       -->     "<< turn_around <<endl;
+        }
+        else
+        {
+            start_time = arr[i].arvl_time ;    // start time cannot small value(time) than arrival time .. start time either equal or greater than arrival time :)
 
-        waiting_time = start - arrival[j] ;    // for one iteration
-        waiting_sum += waiting_time;          // total waiting time
+            waiting_time = start_time - arr[i].arvl_time ;   // 1st iteration waiting time
+            wt_sum += waiting_time ;  // total waiting time
 
-        turn_around = *it + waiting_time ;   // *it our burst time , for one iteration
-        turn_sum += turn_around ;            // total turn around time
+            turn_around = arr[i].brst_time + waiting_time ;   // 1st iteration turn around time
+            t_sum += turn_around ;     // total turn around time
 
-        i++ ; j++ ;
+            cout<<"\n     "<< arr[i].pro <<"     --  >     "<< arr[i].arvl_time <<
+                "       -->     "<< arr[i].brst_time <<"       -->     "<< start_time <<
+                "       -->     "<< waiting_time <<"       -->     "<< turn_around <<endl;
+        }
+
+        start_time += arr[i].brst_time ;   // update start_time
+
     }
 
 
     //  ---> Gantt Chart design part <----
 
-    int start2=0,cnt2=0,yes_done=0;
-    int h=1;
     cout<<"\n\n   # Gantt Chart : \n"<<endl;
     cout<<"   ";
-    for( k=arr.begin(); k!=arr.end(); k++)
+    for( int i=0; i<p; i++ )
     {
-        cout<<"    P("<<h<<")";
-        cout<<"  ";
-        h++ ;
+        cout<<"    "<<arr[i].pro;
+        cout<<"    ";
     }
     cout<<"\n";
     cout<<"   ";
-    for( k=arr.begin(); k!=arr.end(); k++)
+    for( int k=0; k<p ; k++ )
     {
         cout<<"|--------|";
     }
@@ -78,23 +99,32 @@ int main()
     cout<<"\n";
     cout<<"    ";
 
-    for( k=arr.begin(); k!=arr.end(); k++)
+    int start_sum  = arr[0].arvl_time , done=0; ;
+    for( int i=0; i<p; i++ )
     {
-        start2 = cnt2 ;
-        cout<< start2 <<"        ";    // start time
-        cnt2 += *k;                    // next start time = sum of previous burst time
+        done  = start_sum ;
 
-        yes_done = *k ;  // for finding last process burst time
+        if( start_sum >= arr[i].arvl_time )       // same logic of start_time which has already described above :)
+        {
+            cout<< start_sum <<"        ";
+        }
+        else
+        {
+            start_sum = arr[i].arvl_time ;
+            cout<< start_sum <<"        ";
+        }
+
+        start_sum = start_sum + arr[i].brst_time ;
     }
-
-    e = find( arr.begin(),arr.end(),yes_done );    // because we need , end time = last( start time + burst time )
-    cout<< start2 + (*e) ;                        // print end time
+    cout<< arr[p-1].brst_time + done ;
+    cout<<"\n";
 
     // ----> End Gantt Chart design part <---
 
+    cout<<"\n Average waiting time : "<< double(wt_sum / p) << endl;     // total waiting time by total number of process
+    cout<<"\n Average waiting time : "<< double(t_sum / p) << endl;      // total turn around time by total number of process
 
-    cout<<"\n\n  Average waiting time     : "<< double(waiting_sum/n) <<endl;
-    cout<<"\n  Average turn around time : "<<  double(turn_sum/n) <<endl;
 
     return 0;
 }
+
