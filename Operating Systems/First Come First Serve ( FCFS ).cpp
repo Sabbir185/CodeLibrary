@@ -1,4 +1,4 @@
-/* Bismillahir Rahmanir Rahim                    Test Case 1 : No.Of process 4 ; P1 0 5     Case 2 : No.Of process 4 ; P1 0 2
+/* Bismillahir Rahmanir Rahim             Sample Test Case 1 : No.Of process 4 ; P1 0 5     Case 2 : No.Of process 4 ; P1 0 2
    Md. Sabbir Ahmmed                                                             p2 1 3                                P2 1 2
    dept. of CSE                                                                  P3 2 8                                P3 5 3
    Northern University Of Business & Technology,Khulna                           p4 3 6                                P4 6 4
