@@ -16,15 +16,6 @@ int main()
     for(i=0; i<no; i++)
         frame[i]= -1;
 
-    // initial frame
-    cout<<"\n initial frame : \n"<<endl;
-    for(int s=0; s<no; s++ )
-    {
-        cout<<"\t  "<<frame[s]<<endl;
-        cout<<"\t"<<"------"<<endl;
-    }
-    cout<<"\n";
-
     j=0;
     cout<<" FIFO Page Replacement Frame : \n"<<endl;
     for(i=1; i<=n; i++)
@@ -43,12 +34,6 @@ int main()
             frame[j]=a[i];
             j=(j+1)%no;
             count++;
-            for(k=0; k<no; k++)
-            {
-                cout<<"\t  "<<frame[k]<<endl;
-                cout<<"\t"<<"-------"<<endl;
-            }
-
         }
         cout<<"\n\n";
     }
