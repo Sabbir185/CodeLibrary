@@ -1,1 +1,11 @@
 
+ :: Operating System ::
+
+	1 . First come first server ( FCFS )
+	2 . Shortest job first (SJF) non-preemptive
+	3 . Round robin
+	4 . First in first out (paging)
+
+  :: Sabbir Ahmmed ::
+     Northern University Of Business & Technology , Khulna
+     Dept. of CSE
