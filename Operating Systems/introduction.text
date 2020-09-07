@@ -1,10 +1,10 @@
 
- :: Operating System ::
+ :: Operating System :: 
 
-	1 . First come first server ( FCFS )
-	2 . Shortest job first (SJF) non-preemptive
-	3 . Round robin
-	4 . First in first out (paging)
+	1 . First come first server ( FCFS ) with Gantt Chart
+	2 . Shortest job first (SJF) non-preemptive with Gantt Chart
+	3 . Round robin with Gantt Chart
+	4 . First in first out (paging) with Gantt Chart
 
   :: Sabbir Ahmmed ::
      Northern University Of Business & Technology , Khulna
