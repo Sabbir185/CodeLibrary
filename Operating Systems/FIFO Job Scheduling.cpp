@@ -1,3 +1,9 @@
+/* Bismillahir Rahmanir Rahim             Sample Test Case 1 : enter the length of the Reference string : 20
+   Md. Sabbir Ahmmed                                           enter the reference string : 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1                  
+   dept. of CSE                                                enter the number of Frames : 3                  
+   Northern University Of Business & Technology,Khulna                           
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
