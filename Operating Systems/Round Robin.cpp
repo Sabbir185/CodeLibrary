@@ -1,3 +1,9 @@
+/* Bismillahir Rahmanir Rahim             Sample Test Case 1 : No.Of process 3 ; Enter processes : P1 P2 P3 ; Enter Burst time : 10 5 8
+   Md. Sabbir Ahmmed                                                              
+   dept. of CSE                                                                 
+   Northern University Of Business & Technology,Khulna                           
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
