@@ -1,3 +1,6 @@
+
+// https://github.com/Sabbir185/CodeLibrary/tree/master/Assignment_3
+
 /*
     KilometerTOMeter converter
     we know that 1 km = 1000 m
@@ -13,8 +16,8 @@ function kilometerToMeter(value){
     }  
 }
 
-var meterCalculate = kilometerToMeter(3.7);
-console.log(meterCalculate);
+
+
 
 
 
@@ -43,8 +46,7 @@ function budgetCalculator(clocks,phones,laptops){
     return totalCost;
 }
 
-var totalbudget = budgetCalculator(3.1,2,1);
-console.log(totalbudget);
+
 
 
 
@@ -77,8 +79,7 @@ function hotelCost(days){
     }
 }
 
-var costCalculate = hotelCost(23);
-console.log(costCalculate);
+
 
 
 
@@ -109,6 +110,5 @@ function megaFriend(friends){
     }
 }
 
-let friendList = ['sabbir','Motiur','Nazib','shahriar'];
-let result = megaFriend(friendList);
-console.log(result);
+
+
