@@ -19,6 +19,24 @@ function productChangeCount(product , isIncrease){
     }
 
     document.getElementById(product+"Cost").innerText = productCost;
+
+    totalCalculation();
+}
+
+function totalCalculation(){
+    const phoneInput = document.getElementById('phone-quantity');
+    const phoneCount = parseInt(phoneInput.value);
+
+    const caseInput = document.getElementById('case-quantity');
+    const caseCount = parseInt(caseInput.value);
+
+    let total = (phoneCount * 1219) + (caseCount * 59) ;
+    document.getElementById("total").innerText = '$'+ total;
+
+    let grandTotal = (total * 0.05) + total ;         // assume that our tax 5%
+
+    document.getElementById("grand-total").innerText = '$' + grandTotal ;
+
 }
 
 
