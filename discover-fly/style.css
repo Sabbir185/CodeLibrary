@@ -19,7 +19,7 @@ nav{
     width: 100%;
     padding: 20px 0;
 }
-.container{
+.container1{
     width: 1200px;
     max-width: 85%;
     margin: 0 auto;
@@ -34,7 +34,7 @@ nav ul li a{
     padding: 10px;
     text-transform: uppercase;
 }
-nav ul li a:hover, a.active{
+nav ul li a:hover, a.active1{
     background-color: #3352F2;
     border-radius: 5px;
 }
