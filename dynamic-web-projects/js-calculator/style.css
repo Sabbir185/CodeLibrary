@@ -1,0 +1,23 @@
+.calculator{
+    width: 280px;
+    height: 400px;
+    background-color: rgb(240, 240, 240);
+    margin: auto;
+    margin-top: 100px;
+    border: 1px solid rgb(122, 209, 200);
+    box-shadow: 5px 5px 10px dimgray;
+  
+}
+.line input{
+    width: 60px;
+    font-size: 25px;
+}
+#text-input{
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+}
+.endline input{
+    width: 127px;
+    font-size: 25px;
+}
