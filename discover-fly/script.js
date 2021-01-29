@@ -13,7 +13,19 @@ function counterHandler(className,counterButton){
     document.getElementById(className+'ClassInput').value = newCount ;
 
 
+    let subTotal = subTotalCalculate();
+    document.getElementById('subtotal').innerText = subTotal;
 
+    let taxCost = subTotal * 0.1      // 10% tax
+    document.getElementById('taxPay').innerText = taxCost ;
+
+    let totalCost = taxCost + subTotal;
+    document.getElementById('totalCost').innerText = totalCost ;
+
+}
+
+
+function subTotalCalculate(){
     const newFirstClassInput = document.getElementById('firstClassInput').value;
     const newFirstClassCount = parseInt(newFirstClassInput);
 
@@ -22,6 +34,5 @@ function counterHandler(className,counterButton){
 
     let subTotal = (newFirstClassCount * 150 ) + (newEconomyClassCount * 100 );
 
-    document.getElementById('subtotal').innerText = subTotal;
-
+    return subTotal;
 }
