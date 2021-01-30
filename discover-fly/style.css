@@ -127,3 +127,35 @@ nav ul li a:hover, a.active1{
     display: flex;
     justify-content: space-between;
 }
+
+
+
+/* pop up style */
+
+.pop-up{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 280px;
+    left: 150px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.popup-content{
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+    position: relative;
+    display: none;
+}
+
+.closeBtn h4{
+    background-color: tomato;
+    border-radius: 50%;
+    padding: 8px 15px;
+    box-shadow: 2px 2px 5px gray;
+}
