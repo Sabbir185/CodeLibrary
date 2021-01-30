@@ -83,4 +83,6 @@ document.getElementById("close").addEventListener("click", function(){
     document.getElementById("btnHide2").style.display = "inline-block";
     document.getElementById("btnHide3").style.display = "inline-block";
     document.getElementById("btnHide4").style.display = "inline-block";
+
+    location.reload();
 })
