@@ -10,40 +10,40 @@
 <body>
     
     <main class="calculator">
-        <form class="p-2 mt-3">
-            <input type="text" class="form-control" id="text-input" placeholder="0">
+        <form class="p-2 mt-3 calc">
+            <input type="text" name="ans" class="form-control" id="text-input" placeholder="0">
             <div class="button-area mt-4">
                 <div class="line d-flex justify-content-between mt-2">
-                    <input type="button" value="7" class="btn btn-secondary">
-                    <input type="button" value="8" class="btn btn-secondary">
-                    <input type="button" value="9" class="btn btn-secondary">
-                    <input type="button" value="/" class="btn btn-info">
+                    <input  type="button" value="7" class="btn btn-secondary" onclick="ans.value += '7' ">
+                    <input type="button" value="8" class="btn btn-secondary" onclick="ans.value += '8' ">
+                    <input type="button" value="9" class="btn btn-secondary" onclick="ans.value += '9' ">
+                    <input type="button" value="/" class="btn btn-info" onclick="ans.value += '/' ">
                 </div>
 
                 <div class="line d-flex justify-content-between mt-2">
-                    <input type="button" value="4" class="btn btn-secondary">
-                    <input type="button" value="5" class="btn btn-secondary">
-                    <input type="button" value="6" class="btn btn-secondary">
-                    <input type="button" value="*" class="btn btn-info">
+                    <input type="button" value="4" class="btn btn-secondary" onclick="ans.value += '4' ">
+                    <input type="button" value="5" class="btn btn-secondary" onclick="ans.value += '5' ">
+                    <input type="button" value="6" class="btn btn-secondary" onclick="ans.value += '6' ">
+                    <input type="button" value="*" class="btn btn-info" onclick="ans.value += '*' ">
                 </div>
 
                 <div class="line d-flex justify-content-between mt-2">
-                    <input type="button" value="1" class="btn btn-secondary">
-                    <input type="button" value="2" class="btn btn-secondary">
-                    <input type="button" value="3" class="btn btn-secondary">
-                    <input type="button" value="-" class="btn btn-info">
+                    <input type="button" value="1" class="btn btn-secondary" onclick="ans.value += '1' ">
+                    <input type="button" value="2" class="btn btn-secondary" onclick="ans.value += '2' ">
+                    <input type="button" value="3" class="btn btn-secondary" onclick="ans.value += '3' ">
+                    <input type="button" value="-" class="btn btn-info" onclick="ans.value += '-' ">
                 </div>
 
                 <div class="line d-flex justify-content-between mt-2">
-                    <input type="button" value="0" class="btn btn-secondary">
-                    <input type="button" value="00" class="btn btn-secondary">
-                    <input type="button" value="." class="btn btn-secondary">
-                    <input type="button" value="+" class="btn btn-info">
+                    <input type="button" value="0" class="btn btn-secondary" onclick="ans.value += '0' ">
+                    <input type="button" value="00" class="btn btn-secondary" onclick="ans.value += '00' ">
+                    <input type="button" value="." class="btn btn-secondary" onclick="ans.value += '.' ">
+                    <input type="button" value="+" class="btn btn-info" onclick="ans.value += '+' ">
                 </div>
 
                 <div class="endline d-flex justify-content-between mt-2">
-                    <input type="button" value="C" class="btn btn-warning">
-                    <input type="button" value="=" class="btn btn-primary">
+                    <input type="button" value="C" class="btn btn-warning" onclick="ans.value = '' ">
+                    <input type="button" value="=" class="btn btn-primary" onclick="ans.value=eval(ans.value)">
                     
                 </div>
             </div>
