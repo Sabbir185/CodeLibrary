@@ -18,9 +18,9 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text">
+                    <input id="user-input" class="form-control" type="text">
                     <div class="numbers">
-                        <div class="calc-body">
+                        <div id="digits-container" class="calc-body">
                             <div class="calc-button-row">
                               <div class="button">7</div>
                               <div class="button">8</div>
@@ -42,7 +42,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button onclick="verifyPin()" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
