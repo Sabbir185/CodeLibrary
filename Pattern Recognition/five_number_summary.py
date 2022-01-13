@@ -5,17 +5,36 @@ right_array = []
 k = 0
 
 def odd(arr, n):
-    index = ( ( 1 + n ) // 2 ) - 1
+    index = ( n - 1 ) // 2
     k = index
     median = arr[index]
     return (median, k)
 
+
 def even(arr, n):
-    mid_index = ( n // 2 ) - 1 
-    k = mid_index + 1
+    mid_index = ( n-1 ) // 2
     next_index = ( n // 2 )
+    k = mid_index + 1
     median = ( arr[mid_index] + arr[next_index] ) / 2
     return (median, k)
+
+
+def left_side(left_array, k):
+    if k%2 == 0:
+        Q1, l = even( left_array, k)
+    else:
+        Q1, l = odd( left_array, k)
+    
+    return Q1
+
+
+def right_side(right_array, k):
+    if k%2 == 0:
+        Q3, r = even( right_array, k)
+    else:
+        Q3, r = odd( right_array, k)
+
+    return Q3
 
 
 if __name__ == "__main__":
@@ -26,10 +45,10 @@ if __name__ == "__main__":
 
     print('\n:: Five Number Summary ::')
     data_set.sort()
-    min = data_set[0]
-    max = data_set[n-1]
+    min_value = data_set[0]
+    max_value = data_set[n-1]
 
-    print("Sorted dataset : {}".format(data_set))
+    print("length = {}, sorted dataset : {}".format(n, data_set))
 
     if n%2 == 0:
         Q2, k = even( data_set, n)
@@ -37,23 +56,14 @@ if __name__ == "__main__":
         left_array = data_set[:k]
         right_array = data_set[k:]   
 
-        #left side dataset
-        if k%2 == 0:
-            Q1, l = even( left_array, k)
+        #left side sub-dataset
+        Q1 = left_side(left_array, k)
 
-        else:
-            Q1, l = odd( left_array, k)
-
-
-        #right side dataset
-        if k%2 == 0:
-            Q3, r = even( right_array, k)
-
-        else:
-            Q3, r = odd( right_array, k)
+        #right side sub-dataset
+        Q3 = right_side(right_array, k)
 
 
-        print(f"\nmin = {min}, Q1 = {Q1}, Q2 = {Q2}, Q3 = {Q3}, max = {max}\n")
+        print(f"\nmin = {min_value}, Q1 = {Q1}, Q2 = {Q2}, Q3 = {Q3}, max = {max_value}\n")
         print("Left side new dataset", left_array)
         print("Right side new dataset", right_array)
 
@@ -61,25 +71,16 @@ if __name__ == "__main__":
         Q2, k = odd( data_set, n)
 
         left_array = data_set[:k]
-        right_array = data_set[k+1:]   
+        right_array = data_set[k+1:] 
 
-        #left side dataset
-        if k%2 == 0:
-            Q1, l = even( left_array, k)
+        #left side sub-dataset
+        Q1 = left_side(left_array, k)
 
-        else:
-            Q1, l = odd( left_array, k)
+        #right side sub-dataset
+        Q3 = right_side(right_array, k)
 
 
-        #right side dataset
-        if k%2 == 0:
-            Q3, r = even( right_array, k)
-
-        else:
-            Q3, r = odd( right_array, k)
-            
-
-        print(f"\nmin = {min}, Q1 = {Q1}, Q2 = {Q2}, Q3 = {Q3}, max = {max}\n")
+        print(f"\nmin = {min_value}, Q1 = {Q1}, Q2 = {Q2}, Q3 = {Q3}, max = {max_value}\n")
         print("Left side new dataset", left_array)
         print("Right side new dataset", right_array)
   
